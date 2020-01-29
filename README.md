@@ -62,7 +62,7 @@ foreign_key: "seller_id", class_name: "items"
 ### Association
 - belongs_to :seller, class_name: "User"
 - belongs_to :buyer, class_name: "User"
-- has_many :categories, through :items_categories
+- belongs_to :categorie
 - has_many :images
 - has_many :comments
 
@@ -82,19 +82,11 @@ foreign_key: "seller_id", class_name: "items"
 ### Association
 - belongs_to :item
 
-## items_categoriesテーブル 
-|Column|Type|Option|
-|------|----|------|
-|item_id|references|null: false, foreign_key: true|
-|category_id|references|null: false, foreign_key: true|
-### Association
-- belongs_to : item
-- belongs_to : category
-
 ## categoriesテーブル 
 |Column|Type|Option|
 |------|----|------|
 |name|string|null: false|
-|ancestry|string||
+|path|string||
 ### Association
-- has_many :items, through :items_categories
+- has_many :items
+- has_ancestry

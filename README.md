@@ -15,12 +15,25 @@
 |day_birth_at|integer|null: false|
 |body|text||
 |image|string||
+
 ### Association
 - has_many :buyed_items, foreign_key: "buyer_id", class_name: "items"
 - has_many :seller_items, -> {where("buywer_id is NULL")},
 foreign_key: "seller_id", class_name: "items"
 - has_many :address
+- has_many :creditcrads
 - has_one :profile
+
+## creditcradsテーブル
+|Column|Type|Option|
+|------|----|------|
+|number|integer|null: false|
+|cvc|integer|null: false|
+|month|integer|null: false|
+|year|integer|null: false|
+|user_id|integer|null: false|
+### Association
+- belongs_to :user
 
 ## addressテーブル
 |Column|Type|Option|

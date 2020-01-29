@@ -1,26 +1,3 @@
-## README
-This README would normally document whatever steps are necessary to get the application up and running.
-
-Things you may want to cover:
-
-Ruby version
-
-System dependencies
-
-Configuration
-
-Database creation
-
-Database initialization
-
-How to run the test suite
-
-Services (job queues, cache servers, search engines, etc.)
-
-Deployment instructions
-
-...
-
 ## usersテーブル
 |Column|Type|Option|
 |------|----|------|
@@ -36,14 +13,16 @@ Deployment instructions
 |year_birth_at|integer|null: false|
 |month_birth_at|integer|null: false|
 |day_birth_at|integer|null: false|
+|body|text||
+|image|string||
 ### Association
 - has_many :buyed_items, foreign_key: "buyer_id", class_name: "items"
 - has_many :seller_items, -> {where("buywer_id is NULL")},
 foreign_key: "seller_id", class_name: "items"
-- has_many :addlesses
+- has_many :addless
 - has_one :profile
 
-## addlessesテーブル
+## addlessテーブル
 |Column|Type|Option|
 |------|----|------|
 |zipcode|string|null: false|
@@ -52,26 +31,16 @@ foreign_key: "seller_id", class_name: "items"
 |house_number|string|null: false|
 |building|string||
 |phone_number|string||
-|user_id|references|null: false|
-### Association
-- belongs_to :user
-
-## profilesテーブル
-|Column|Type|Option|
-|------|----|------|
-|body|text||
-|image|string||
-|user_id|references|null: false|
+|user_id|integer|null: false|
 ### Association
 - belongs_to :user
 
 ## itemsテーブル
 |Column|Type|Option|
 |------|----|------|
-|image|string|null: false|
 |name|string|null: false|
 |status|string|null: false|
-|text|string|null: false|
+|body|text|null: false|
 |price|integer|null: false|
 |fee|integer|null: false|
 |region|string|null: false|
@@ -82,6 +51,24 @@ foreign_key: "seller_id", class_name: "items"
 - belongs_to :seller, class_name: "User"
 - belongs_to :buyer, class_name: "User"
 - has_many :categories, through :items_categories
+- has_many :images
+- has_many :comments
+
+## imagesテーブル
+|Column|Type|Option|
+|------|----|------|
+|image|string|null: false|
+|items_id|integer|null: false|
+### Association
+- belongs_to :item
+
+## commentsテーブル
+|Column|Type|Option|
+|------|----|------|
+|body|text||
+|items_id|integer|null: false|
+### Association
+- belongs_to :item
 
 ## items_categoriesテーブル 
 |Column|Type|Option|
@@ -89,7 +76,7 @@ foreign_key: "seller_id", class_name: "items"
 |items_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
 ### Association
-- belongs_to : items
+- belongs_to : item
 - belongs_to : category
 
 ## categoriesテーブル 

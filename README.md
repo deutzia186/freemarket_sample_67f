@@ -15,7 +15,6 @@
 |day_birth_at|integer|null: false|
 |body|text||
 |image|string||
-
 ### Association
 - has_many :buyed_items, foreign_key: "buyer_id", class_name: "items"
 - has_many :seller_items, -> {where("buywer_id is NULL")},
@@ -71,7 +70,7 @@ foreign_key: "seller_id", class_name: "items"
 |Column|Type|Option|
 |------|----|------|
 |image|string|null: false|
-|items_id|integer|null: false, foreign_key: true|
+|item_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :item
 
@@ -86,7 +85,7 @@ foreign_key: "seller_id", class_name: "items"
 ## items_categoriesテーブル 
 |Column|Type|Option|
 |------|----|------|
-|items_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to : item

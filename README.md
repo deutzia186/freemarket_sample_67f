@@ -19,10 +19,10 @@
 - has_many :buyed_items, foreign_key: "buyer_id", class_name: "items"
 - has_many :seller_items, -> {where("buywer_id is NULL")},
 foreign_key: "seller_id", class_name: "items"
-- has_many :addless
+- has_many :address
 - has_one :profile
 
-## addlessテーブル
+## addressテーブル
 |Column|Type|Option|
 |------|----|------|
 |zipcode|string|null: false|

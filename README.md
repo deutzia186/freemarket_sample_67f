@@ -31,7 +31,7 @@ foreign_key: "seller_id", class_name: "items"
 |cvc|integer|null: false|
 |month|integer|null: false|
 |year|integer|null: false|
-|user_id|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 
@@ -44,7 +44,7 @@ foreign_key: "seller_id", class_name: "items"
 |house_number|string|null: false|
 |building|string||
 |phone_number|string||
-|user_id|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 
@@ -71,7 +71,7 @@ foreign_key: "seller_id", class_name: "items"
 |Column|Type|Option|
 |------|----|------|
 |image|string|null: false|
-|items_id|integer|null: false|
+|items_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :item
 
@@ -79,7 +79,7 @@ foreign_key: "seller_id", class_name: "items"
 |Column|Type|Option|
 |------|----|------|
 |body|text||
-|items_id|integer|null: false|
+|items_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :item
 

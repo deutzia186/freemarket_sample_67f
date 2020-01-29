@@ -1,11 +1,118 @@
 .wrapper
+  = render "shared/header"
   .header
+    .header__box
+      .header__box--up
+        .logo
+          .logo__image
+        .search
+          .search__text
+          .search__button
+      .header__box--down
+        .left
+          .left__category
+          .left__brand
+        .right
+          .right__log-in
+          .right__sign-up
+
   .exhibition
+
   .main
+
     .main__concept
+      .main__concept__box
+        .content
+          .content__title
+          .content__text
+        .install
+          .install__app
+          .install__google
+
     .main__reason
+      .main__reason__title
+      .main__reason__content
+        .left
+          .left__image
+            .left__image__number
+          .left__title
+          .left__description
+        .center
+          .center__image
+            .center__image__number
+          .center__title
+          .center__description
+        .right
+          .right__image
+            .right__image__
+          .right__title
+          .right__description
+
     .main__pride
+      .main__pride
+      .main__pride__box
+        .content
+          .content__title
+          .content__description
+        .install
+          .install__app
+          .install__google
+
     .main__feature
+      .main__feature__title
+        .main__feature__title__content
+          .reason-left
+            .reason-left__image
+            .reason-left__title
+            .reason-left__description
+          .reason-center
+            .reason-center__image
+            .reason-center__title
+            .reason-center__description
+          .reason-right
+            .reason-right__image
+            .reason-right__title
+            .reason-right__description
+
     .main__information
-    .main__recommendation
-  .footer
+      .main__information__category
+        .main__information__category__type
+      .products
+        .products--left
+          .products--left__image
+           .products--left__content
+            .detail
+              .detail__name
+              .detail__price
+              .detail__tax-in
+            .good
+              .good__star
+              .good__count
+        .products__center
+          .products--center
+          .products--center__image
+           .products--center__content
+            .detail
+              .detail__name
+              .detail__price
+              .detail__tax-in
+            .good
+              .good__star
+              .good__count
+
+        ..products__right
+          .products--right
+          .products--right__image
+           .products--right__content
+            .detail
+              .detail__name
+              .detail__price
+              .detail__tax-in
+            .good
+              .good__star
+              .good__count
+  = render "shared/footer"
+    
+
+    
+

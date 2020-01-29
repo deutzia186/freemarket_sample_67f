@@ -95,6 +95,6 @@ foreign_key: "seller_id", class_name: "items"
 |Column|Type|Option|
 |------|----|------|
 |name|string|null: false|
-|path|string||
+|ancestry|string||
 ### Association
 - has_many :items, through :items_categories

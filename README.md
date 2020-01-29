@@ -20,7 +20,7 @@
 - has_many :buyed_items, foreign_key: "buyer_id", class_name: "items"
 - has_many :seller_items, -> {where("buywer_id is NULL")},
 foreign_key: "seller_id", class_name: "items"
-- has_many :address
+- has_many :addresses
 - has_many :creditcrads
 - has_one :profile
 
@@ -35,7 +35,7 @@ foreign_key: "seller_id", class_name: "items"
 ### Association
 - belongs_to :user
 
-## addressテーブル
+## addressesテーブル
 |Column|Type|Option|
 |------|----|------|
 |zipcode|string|null: false|

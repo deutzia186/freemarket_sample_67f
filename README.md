@@ -72,8 +72,10 @@ foreign_key: "seller_id", class_name: "items"
 |------|----|------|
 |image|string|null: false|
 |item_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :item
+- belongs_to :user
 
 ## commentsテーブル
 |Column|Type|Option|

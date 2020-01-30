@@ -21,6 +21,7 @@
 foreign_key: "seller_id", class_name: "items"
 - has_many :addresses
 - has_many :creditcrads
+- has_many :comments
 - has_one :profile
 
 ## creditcradsテーブル
@@ -51,7 +52,7 @@ foreign_key: "seller_id", class_name: "items"
 |Column|Type|Option|
 |------|----|------|
 |name|string|null: false|
-|status|string|null: false|
+|status|integer|default: 0, null: false, limit: 1|
 |body|text|null: false|
 |price|integer|null: false|
 |fee|integer|null: false|
@@ -79,8 +80,10 @@ foreign_key: "seller_id", class_name: "items"
 |------|----|------|
 |body|text||
 |items_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :item
+- belongs_to :user
 
 ## categoriesテーブル 
 |Column|Type|Option|

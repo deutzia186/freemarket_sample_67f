@@ -1,24 +1,37 @@
 .footer
-  .footer__up
-    .content
-      .content__title
-      .content__description
-    .install
-      .install__app
-      .install__google
-
-  .footer__down
-    .footer__down--left
-      .title
-        .list
-    .footer__down--center
-      .title
-        .list
-    .footer__down--right
-      .title
-        .list
+  .footer__box
+    .footer__box__content
+      %h2.footer__box__content__title FURIMAについて
+      .footer__box--content__list
+      %ul 
+        %li
+          %a{href: "#"} 会社概要（運営会社）
+        %li
+          %a{href: "#"} プライバシーポリシー
+        %li
+          %a{href: "#"}FURIMA利用規約
+        %li
+          %a{href: "#"} ポイントに関する特約
+    .footer__box__content
+      %h2.footer__box__content__title FURIMAを見る
+      .footer__box__content__list
+      %ul
+        %li
+          %a{href: "#"} カテゴリー一覧
+        %li
+          %a{href: "#"} ブランド一覧
+    .footer__box__content
+      %h2.footer__box__content__title ヘルプ&ガイド
+      .footer__box__content__list
+      %ul
+        %li
+          %a{href: "#"} FURIMAガイド
+        %li
+          %a{href: "#"} FURIMAロゴ利用ガイドライン
+        %li
+          %a{href: "#"} お知らせ      
   .logo
-    .logo--up
-      .logo--up__icon
-      .logo--up__name
-    .logo--down
+    = link_to image_tag('logo-white.png',size: "160x46"),"#"
+    %p © FURIMA
+
+  

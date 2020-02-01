@@ -76,6 +76,6 @@ gem 'haml-rails'
 gem 'ransack'
 gem 'omniauth'
 gem "omniauth-rails_csrf_protection"
-gem 'ancestry'
 gem 'payjp'
-gem 'device'
+gem 'ancestry', '~> 3.0', '>= 3.0.7'
+gem 'devise', '~> 4.7', '>= 4.7.1'

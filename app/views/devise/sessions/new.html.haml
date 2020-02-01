@@ -1,0 +1,36 @@
+.single-container
+  .single-header
+    %h1
+      .single-container__header-icon
+        = link_to "#" do
+          .single-container__header-icon-image
+            = image_tag 'logo.png', size: '300x60'
+
+  .single-main
+    .login-single-container
+      .login-single-head
+        アカウントをお持ちでない方はこちら
+        .btn-newsession
+          = link_to "#" do
+            新規会員登録
+      = form_for(resource, as: resource_name, url: "#", html: {id: "new_user_form",class: 'login-single-inner'}) do |f|
+        .login-single-content
+          .form-group
+            = f.text_field :email, autofocus: true, placeholder: "メールアドレス",required: "required", class: 'login-input-default'
+          .form-group
+            = f.password_field :password, autocomplete: "new-password", placeholder: "パスワード",required: "required", class: "login-input-default"
+          .form-group
+            = f.submit "ログイン", class: "btn-login"
+          .form-group
+
+  .single-footer
+    .navigation
+      %ul.clearfix
+        %li 
+          %a{href: "#"} プライバシーポリシー
+        %li 
+          %a{href: "#"} フリマ利用規約
+        %li 
+          %a{href: "#"} 特定商取引に関する表記
+      = link_to "#" do
+        = image_tag 'logo.png', size: '300x60', class: "footer-logo"

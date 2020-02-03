@@ -322,7 +322,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ancestry (~> 3.0, >= 3.0.7)
+  ancestry
   bootsnap (>= 1.1.0)
   byebug
   capistrano
@@ -334,7 +334,7 @@ DEPENDENCIES
   carrierwave
   chromedriver-helper
   coffee-rails (~> 4.2)
-  devise (~> 4.7, >= 4.7.1)
+  devise
   fog-aws
   font-awesome-sass
   haml-rails

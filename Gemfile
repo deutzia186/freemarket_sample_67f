@@ -77,5 +77,5 @@ gem 'ransack'
 gem 'omniauth'
 gem "omniauth-rails_csrf_protection"
 gem 'payjp'
-gem 'ancestry', '~> 3.0', '>= 3.0.7'
-gem 'devise', '~> 4.7', '>= 4.7.1'
+gem 'ancestry'
+gem 'devise'

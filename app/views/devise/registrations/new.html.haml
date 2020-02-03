@@ -72,7 +72,8 @@
           .form-group
             %p.textcenter
               「次へ進む」のボタンを押すことにより、
-              %a{href: "#"} 利用規約
+              = link_to "#" do
+                利用規約
               に同意したものとみなします
             = f.submit "次へ進む", class: "btn"
           .form-group
@@ -81,11 +82,13 @@
       .navigation
         %ul.clearfix
           %li 
-            %a{href: "#"} プライバシーポリシー
+            = link_to "#" do 
+              プライバシーポリシー
           %li 
-            %a{href: "#"} フリマ利用規約
+            = link_to "#" do 
+              フリマ利用規約
           %li 
-            %a{href: "#"} 特定商取引に関する表記
+            = link_to "#" do 
+              特定商取引に関する表記
         = link_to "#" do
           = image_tag 'logo.png', size: '300x60', class: "footer-logo"
-    

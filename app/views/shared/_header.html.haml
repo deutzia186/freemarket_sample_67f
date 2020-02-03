@@ -2,12 +2,13 @@
   .header__box
     .header__box--up
       .logo
-        = link_to image_tag('logo.png',size: "140x41"),"#"
-        
+        = link_to "#" do
+          %img{src:"/assets/logo.png",height:"41px",width:"140px"}
       .search
         %input#searchInput.search__form{name: "key", placeholder: "キーワードから探す"}/
         .search__button
-          =link_to image_tag('icon-search 1.png',size: "20x20",class: "search__button__icon"),"#"
+          =link_to "#" do
+            %img{src:"/assets/icon-search 1.png",height:"20px",width:"20px"}
     .header__box--down
       .left
         =link_to "カテゴリー","#",class: "left__category"
@@ -18,4 +19,7 @@
         
         =link_to "新規会員登録","#",class: "right__sign-up"
 
--# 検索フォームはform_with使う
+
+        -# imgの虫眼鏡クラス指定わからん
+
+   

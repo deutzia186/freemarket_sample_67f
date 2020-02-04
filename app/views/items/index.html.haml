@@ -11,10 +11,14 @@
           %br フリマアプリです
         .install
           = link_to "#" do
-            %img{src: "/assets/1280px-Download_on_the_App_Store_Badge.svg_638923b1-49f1-4be6-a584-1c5c2767a43e",height:"53px",width:"180px"}
+            asset_path(“umaibo1.jpeg”)
+            %img{src: “{asset_path(“umaibo1.jpeg”)}“}
+
+
+          -#   %img{src: "/assets/1280px-Download_on_the_App_Store_Badge.svg_638923b1-49f1-4be6-a584-1c5c2767a43e",height:"53px",width:"180px"}
           
-  -#         = link_to "#" do
-  -#           %img{ src: "/assets/googleplay2.png",height:"53px",width:"180px"}
+          -# = link_to "#" do
+          -#   %img{ src: "/assets/googleplay2.png",height:"53px",width:"180px"}
   -#   .main__reason
   -#     .main__reason__title
   -#       FURIMAが選ばれる3つの理由

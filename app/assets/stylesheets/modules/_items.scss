@@ -85,6 +85,9 @@
       }
       .install{
         margin: 24px 0 0 0;
+        a{
+          text-decoration: none;
+        }
       }
     }
   }
@@ -157,7 +160,7 @@
     }
   }
   &__pride{
-    background-image:image-url("bg-topMiddleDl-pict.jpg");
+    background-image:url("bg-topMiddleDl-pict.jpg");
     background-position: bottom right;
     height: 400px;
     background-size: cover;
@@ -180,6 +183,11 @@
           font-size: 18px;
           margin: 20px 0 30px;
           line-height: 1.5;
+        }
+      }
+      .install{
+        a{
+          text-decoration: none;
         }
       }
     }
@@ -310,6 +318,9 @@
     display: flex;
     justify-content: center;
     margin: 20px auto 0;
+    a{
+      text-decoration: none;
+    }
   }
 }
 .footer{
@@ -333,6 +344,10 @@
         margin: 0 0 20px;
         font-size: 16px;
         font-weight: bold;
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
       }
     }
   }

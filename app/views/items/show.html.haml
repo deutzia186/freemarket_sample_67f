@@ -1,0 +1,110 @@
+.detailPage
+  = render "shared/header"
+
+  .showMain
+    .DPcontent
+      .upperBox
+        .itemBuy
+          %p.itemBuy__title
+            title
+            .itemBuy__imageBody
+              %ul.showImageBox
+                %li.showImages
+                  = image_tag("bg-appBanner-pict.jpg", class: "showBigImage")
+                  %ul.showSmallImageBox
+                    %li.showSmallImages
+                      = image_tag("pict-reason-01.jpg", class: "showSmallImage")
+                    %li.showSmallImages
+                      = image_tag("pict-reason-02.jpg", class: "showSmallImage")
+                    %li.showSmallImages
+                      = image_tag("pict-reason-03.jpg", class: "showSmallImage")
+            .showTable-box
+              %table.showTable
+                %tbody.showTbody
+                  %tr.showTr
+                    %th.showTh
+                      出品者
+                    %td.showTd
+                      test
+                  %tr.showTr
+                    %th.showTh
+                      カテゴリー
+                    %td.showTd
+                      = link_to "カテゴリー1", "#", class: "showTransition"
+                      %br= link_to "カテゴリー2", "#", class: "showTransition"
+                      = link_to "カテゴリー3", "#", class: "showTransition"
+                  %tr.showTr
+                    %th.showTh
+                      ブランド
+                    %td.showTd
+                  %tr.showTr
+                    %th.showTh
+                      商品のサイズ
+                    %td.showTd
+                  %tr.showTr
+                    %th.showTh
+                      商品の状態
+                    %td.showTd
+                      新品/未使用
+                  %tr.showTr
+                    %th.showTh
+                      配送料の負担
+                    %td.showTd
+                      着払い（購入者負担）
+                  %tr.showTr
+                    %th.showTh
+                      発送元の地域
+                    %td.showTd
+                      = link_to "地域", "#", class: "showTransition"
+                  %tr.showTr
+                    %th.showTh
+                      発送日の目安
+                    %td.showTd
+                      発送までの日数
+            .itemBuy__priceBox
+              .showPrice
+                ¥price
+              .itemBuy__tax
+                (税込)送料込み
+            = link_to "購入画面に進む", "#", class: "btn itemBuyBtn"
+            .showDescription
+              .describeShow
+                商品説明
+                商品説明
+                商品説明
+                商品説明
+                商品説明
+                商品説明
+                商品説明
+            .detailBottomBtn
+              .favoriteBox
+                .btn.favorite-btn
+                  %i.fa.fa-star
+                  お気に入り 0
+              .report-box
+                = link_to "#", class: "btn report-btn" do
+                  %i.fa.fa-flag
+                  不適切な商品の通報
+
+        .commentBox
+          %form.comment
+            %p.importantPoints
+              相手のことを考え丁寧なコメントを心がけましょう。
+              %br 不快な言葉遣いなどは利用制限や退会処分となることがあります。    
+            %textarea{class: "submitText"}
+            %button.btn.submitBtn
+              %i.fa.fa-comment
+                コメントする
+
+      .linksBottom
+        .back-box
+          = link_to "前の商品", "#", class: "showTransition"
+          
+        .next-box
+          = link_to "次の商品", "#", class: "showTransition"
+      
+      .moreSearch
+        = link_to "カテゴリ1をもっと見る", "#", class: "searchCategory1"
+  
+  = render "shared/banner"
+  = render "shared/footer"  

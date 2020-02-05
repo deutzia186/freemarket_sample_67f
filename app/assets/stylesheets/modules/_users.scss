@@ -1,11 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
-.mypage {
-  display: flex;
-  flex-direction: column;
-}
 
 .bread-crumbs {
   width: 100%;
@@ -78,7 +70,6 @@
       }
       &__buy {
         background-color: white;
-        height: 400px;
         margin-top: 50px;
         .tab-head {
           font-size: 18px;
@@ -90,7 +81,7 @@
         &__box{
           display: flex;
           width: 100%;
-          margin: 26px 15px;
+          margin: 26px auto;
           justify-content: flex-start;
           .product{
             width: 220px;
@@ -112,6 +103,15 @@
               background-color: white;
               color: #333;
               padding: 16px;
+              .price {
+                li {
+                  margin: 0px;
+                  font-size: 16px;
+                  i{
+                    font-size: 12px;
+                  }
+                }
+              }
               .tax_in{
                 font-size: 10px;
                 text-align: left;

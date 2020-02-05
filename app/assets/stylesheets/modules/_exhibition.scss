@@ -1,20 +1,19 @@
 .single-container {
-  height: 100%;
-  width: 100%;
-  background-color: #F5F5F5;
-  background: #F5F5F5;
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  font-size: 14px;
-  color: #333;
+  background-color: #f8f8f8;
   .single-header {
-    background-color: #FFFFFF;
     height: 128px;
     text-align: center;
-    .sell-logo {
-      margin: 40px 0 0;
+    margin-left: 18px;
+    h1 {
+      display: inline-block;
+      margin-top: 33px;
+      a {
       width: 185px;
       height: 49px;
       line-height: 49px;
+      display: inline-block;
+      margin: 0 150px 0 0;
+      }
     }
   }
   .single-main {
@@ -22,7 +21,7 @@
     display: flex;
     justify-content: center;
     .sell-container {
-      height: 2080px;
+      height: 2200px;
       width: 700px;
       background-color: #FFF;
       display: block;
@@ -398,6 +397,7 @@
       .sell-btn-box {
         padding: 40px;
         border-top: 1px solid #eee;
+        display: block;
         .sell-notes {
           text-decoration: none;
           color: #0099E8;
@@ -421,7 +421,7 @@
           display:  block;
           text-decoration: none;
           width: 45%;
-          margin: 24px auto 0;
+          margin: 30px auto 0;
           background: #aaa;
           border: 1px solid #aaa;
           color: #fff;
@@ -429,30 +429,6 @@
           text-align: center;
         }
       }
-    }
-  }
-  .single-footer {
-    background-color: #272727;
-    padding: 40px 0;
-    text-align: center;
-    .terms {
-      display: flex;
-      justify-content: center;
-      .terms-title {
-        margin-left: 10px;
-        text-decoration: none;
-        color: #fff;
-      }
-    }
-    .logo {
-      margin: 40px 0 0;
-      width: 185px;
-      height: 49px;
-      line-height: 49px;
-    }
-    .footer-bottom  {
-      font-size: 14px;
-      color: #fff;
     }
   }
 }

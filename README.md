@@ -43,8 +43,8 @@ foreign_key: "seller_id", class_name: "items"
 |town|string|null: false|
 |house_number|string|null: false|
 |building|string||
-|phone_number|string||
-|user_id|integer|null: false, foreign_key: true|
+|phone_number|integer||
+|user_id|integer|null: false|
 ### Association
 - belongs_to :user
 
@@ -58,8 +58,8 @@ foreign_key: "seller_id", class_name: "items"
 |fee|integer|null: false|
 |region|string|null: false|
 |delivery_day|integer|null: false|
-|seller_id|references|null: false, foreign_key: true|
-|buyer_id|references|foreign_key: true|
+|seller_id|integer|null: false|
+|buyer_id|integer||
 ### Association
 - belongs_to :seller, class_name: "User"
 - belongs_to :buyer, class_name: "User"

@@ -12,7 +12,7 @@
     .l-single-container
       %h2.l-single-head
         会員情報入力
-      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: "new_user_form",class: 'l-single-inner'}) do |f|
+      = form_for(@user, url: user_registration_path, html: {id: "new_user_form",class: 'l-single-inner'}) do |f|
         .l-single-content
           .form-group
             = f.label :ニックネーム

@@ -5,6 +5,33 @@
     = f.label :zipcode
     %br/
     = f.text_field :zipcode
+
+  .field
+    = f.label :city
+    %br/
+    = f.text_field :city
+
+  .field
+    = f.label :town
+    %br/
+    = f.text_field :town
+
+    .field
+    = f.label :house_number
+    %br/
+    = f.text_field :house_number
+
+    .field
+    = f.label :building
+    %br/
+    = f.text_field :building
+
+    .field
+    = f.label :phone_number
+    %br/
+    = f.text_field :phone_number
+
+
   .actions
     = f.submit "Sign up"
 = render "devise/shared/links"

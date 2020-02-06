@@ -34,6 +34,8 @@ class Item < ApplicationRecord
     validates :delivery_day,
       presence: true
 
+
+    # User機能が実装できたらコメントアウトを外す
     # validates :seller_id,
       # presence: true
 

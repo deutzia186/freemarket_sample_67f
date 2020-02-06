@@ -1,7 +1,7 @@
 $(function() {
 
   $('#catbtn').on('left__category',function(e) {
-    
+
     e.preventDefault()
     var formData = new FormData(this);
     var url = $(this).attr('action');
@@ -12,8 +12,6 @@ $(function() {
       dataType: 'json',
       processData: false,
       contentType: false
-    
     })
- 
   });
 });

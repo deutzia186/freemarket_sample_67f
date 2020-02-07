@@ -1,11 +1,15 @@
 .single-container
   .single-header
-    = link_to image_tag("logo.png", class:"sell-logo"), "#"
+    %h1
+      .single-container__header-icon
+        = link_to "#" do
+          .single-container__header-icon-image
+            %img{src:'/logo.png',height:"60px",width:"300px"}
   .single-main
     .sell-container
       .sell-container-top
         %h2.sell-container-top__text 商品の情報を入力
-      .sell-form
+      = form_for (@item), html: {class: 'sell-form'} do |f|
         .sell-upload-box
           %h3.sell-upload-box-head
             %p.exhibition-image 出品画像
@@ -13,7 +17,10 @@
           %p.sell-upload-box-text 最大10枚までアップロードできます
           .sell-dropbox-container
             .sell-upload-drop-box
-              %input.sell-upload-drop-box-file{multiple: "", name: "image1", style: "display: none;", type: "file"}
+              .sell-upload-drop-box-file
+                = f.fields_for :images do |image|
+                  = image.label :image, class: 'form-mask' do
+                    = image.file_field :image, class:'hidden-new'        
               %p.visible-pc
                 ドラッグアンドドロップ
                 %br またはクリックしてファイルをアップロード
@@ -21,11 +28,11 @@
           .form-group-label1
             %p.form-group-label1-title 商品名
             %p.form-require 必須
-          %input.input-default{placeholder: " 商品名（必須 40文字まで)", value: ""}
+          = f.text_field :name, class:'input-default', placeholder: " 商品名（必須 40文字まで)"
           .form-group-label2
             %p.form-group-label2-escription 商品の説明
             %p.form-require 必須
-          %textarea.textarea-default{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"}
+          = f.text_area :body, class:'textarea-default', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。",rows: "5"
         .sell-content-group2
           %h3.sell-sub-head 商品の詳細
           .sell-form-box1
@@ -54,14 +61,7 @@
               %p.form-require 必須
             .select-wrap2
               %i.icon-arrow-bottom
-              %select.select-default2
-                %option{value: ""} ---
-                %option{value: "1"} 新品、未使用
-                %option{value: "2"} 未使用に近い
-                %option{value: "3"} 目立った傷や汚れなし
-                %option{value: "4"} やや傷や汚れあり
-                %option{value: "5"} 傷や汚れあり
-                %option{value: "6"} 全体的に状態が悪い
+              = collection_select :item, :status,ItemStatus.all,:id,:name,{include_blank: '---'} ,{class: "select-default2"}
         .sell-content-group3
           .sell-sub-title
             %h3.sell-sub-head 配送について
@@ -72,26 +72,19 @@
               %p.form-require 必須
             .select-wrap1
               %i.icon-arrow-bottom
-              %select.select-default1
-                %option{value:  ""} ---
-                %option{value: "2"} 送料込み(出品者負担)
-                %option{value: "1"} 着払い(購入者負担)
+              = collection_select :item, :fee,ShippingFee.all,:id,:name,{include_blank: '---'} ,{class: "select-default1"}
             .form-group-label4
               %p.form-group-label4-title 発送元の地域
               %p.form-require 必須
             .select-wrap2
               %i.icon-arrow-bottom
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+              = collection_select :item, :region,Prefecture.all,:id,:name,{include_blank: '---'} ,{class: "select-default2"}
             .form-group-label4
               %p.form-group-label4-title 発送までの日数
               %p.form-require 必須
             .select-wrap3
               %i.icon-arrow-bottom
-              %select.select-default2
-                %option{value: ""} ---
-                %option{value: "1"} 1~2日で発送
-                %option{value: "2"} 2~3日で発送
-                %option{value: "3"} 4~7日で発送
+              = collection_select :item, :delivery_day,Delivery.all,:id,:name,{include_blank: '---'} ,{class: "select-default2"}
         .sell-content-group4
           .sell-sub-title
             %h3.sell-sub-head 販売価格(300〜9,999,999)
@@ -105,7 +98,7 @@
                     %p.form-require 必須
                   .l-right
                     %p.yen-icon ¥
-                    %input.input-default{placeholder: "例）300", value: ""}
+                    = f.text_field :price, class: "input-default", placeholder: "例）300", value: ""
               %li.form-group6
                 .l-left
                   %p.sell-commission 販売手数料 (10%)
@@ -131,16 +124,21 @@
             = link_to "加盟店規約", "#", class: "sell-notes"
             に同意したことになります。
           %button.btn-red{type: "button"}
-            = submit_tag "出品する", class: "exhibition-submit"
+            = f.submit "出品する", class: "exhibition-submit"
           = link_to "もどる", "#", class: "return-btn"
-  %footer.single-footer
-    %p
-      %ul.terms
-        %li
-          = link_to "プライバシーポリシー", "#", class: "terms-title"
-        %li
-          = link_to "フリマ利用規約", "#", class: "terms-title"
-        %li
-          = link_to "特定商取引に関する表記", "#", class: "terms-title"
-    = link_to image_tag("logo-white.png", class:"logo"), "#"
-    %p.footer-bottom © FURIMA
+          
+          
+  .single-footer
+    .navigation
+      %ul.clearfix
+        %li 
+          = link_to "#" do 
+            プライバシーポリシー
+        %li 
+          = link_to "#" do 
+            フリマ利用規約
+        %li 
+          = link_to "#" do 
+            特定商取引に関する表記
+      = link_to "#" do
+        %img{src:'/logo.png',height:"60px",width:"300px"}

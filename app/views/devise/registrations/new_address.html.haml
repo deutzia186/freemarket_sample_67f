@@ -1,37 +1,71 @@
-%h2 住所情報登録
-= form_for @address do |f|
-  = render "devise/shared/error_messages", resource: @address
-  .field
-    = f.label :郵便番号
-    %br/
-    = f.text_field :zipcode
+.single-container
+  .single-header
+    %h1
+      .single-container__header-icon
+        = link_to "#" do
+          .single-container__header-icon-image
+            %img{src: "/logo.png",height:"60px",width:"300px"}
 
-  .field
-    = f.label :都道府県
-    %br/
-    = f.text_field :city
+  .single-main
+    .l-single-container
+      %h2.l-single-head
+        住所情報登録
+      = form_for(@address, html: { class: "l-single-inner" }) do |f|
+        = render "devise/shared/error_messages", resource: @address
+        .l-single-content
+          .form-group
+            = f.label :郵便番号
+            %span.form-require 必須
+            = f.text_field :zipcode, autofocus: true, placeholder: "例) 1001234",required: "required", class: 'input-default'
 
-  .field
-    = f.label :市区町村
-    %br/
-    = f.text_field :town
+          .form-group
+            = f.label :都道府県
+            %span.form-require 必須
+            = f.text_field :city, autofocus: true, placeholder: "例) 東京都",required: "required", class: 'input-default'
 
-    .field
-    = f.label :番地
-    %br/
-    = f.text_field :house_number
+          .form-group
+            = f.label :市区町村
+            %span.form-require 必須
+            = f.text_field :town, autofocus: true, placeholder: "例) 千代田区",required: "required", class: 'input-default'
 
-    .field
-    = f.label :建物
-    %br/
-    = f.text_field :building
+          .form-group
+            = f.label :番地
+            %span.form-require 必須
+            = f.text_field :house_number, autofocus: true, placeholder: "例) 1-1-1",required: "required", class: 'input-default'
 
-    .field
-    = f.label :電話番号
-    %br/
-    = f.number_field :phone_number
+          .form-group
+            = f.label :建物
+            %br/
+            = f.text_field :building, autofocus: true, placeholder: "例) フリマビル101号室", class: 'input-default'
+
+          .form-group
+            = f.label :電話番号
+            %br/
+            = f.number_field :phone_number,autofocus: true, placeholder: "例)09012345678 ", class: 'input-default'
 
 
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+        .l-single-content
+          .form-group
+            %p.textcenter
+              「登録」のボタンを押すことにより、
+              = link_to "#" do
+                利用規約
+              に同意したものとみなします
+            = f.submit "登録", class:"btn"
+          .form-group
+
+
+  .single-footer
+    .navigation
+      %ul.clearfix
+        %li 
+          = link_to "#" do 
+            プライバシーポリシー
+        %li 
+          = link_to "#" do 
+            フリマ利用規約
+        %li 
+          = link_to "#" do 
+            特定商取引に関する表記
+      = link_to "#" do
+        %img{src: "/logo.png",height:"60px",width:"300px",class:"footer-logo"}

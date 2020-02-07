@@ -9,4 +9,5 @@ class User < ApplicationRecord
   validates :last_name_kana, :first_name_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/}
   validates :password,    length: { minimum: 7 } 
   has_one :address
+  has_many :items
 end

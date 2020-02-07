@@ -111,6 +111,8 @@ GEM
     diff-lcs (1.3)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    erb2haml (0.1.5)
+      html2haml
     dropzonejs-rails (0.8.4)
       rails (> 3.1)
     enum_help (0.0.17)
@@ -364,6 +366,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  erb2haml
   dropzonejs-rails
   enum_help
   fog-aws

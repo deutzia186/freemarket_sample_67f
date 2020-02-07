@@ -115,6 +115,8 @@ GEM
       rails (> 3.1)
     enum_help (0.0.17)
       activesupport (>= 3.0.0)
+    erb2haml (0.1.5)
+      html2haml
     erubi (1.9.0)
     erubis (2.7.0)
     excon (0.71.1)
@@ -363,6 +365,7 @@ DEPENDENCIES
   devise
   dropzonejs-rails
   enum_help
+  erb2haml
   fog-aws
   font-awesome-sass
   haml-rails

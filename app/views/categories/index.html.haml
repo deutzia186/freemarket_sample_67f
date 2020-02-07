@@ -1,4 +1,5 @@
-%li.parents
+.parents
   - @parents.each do |parent|
     =parent.name
-    
+      - parent.children.each do |child|
+        =child.name  

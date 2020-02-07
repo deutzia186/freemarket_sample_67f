@@ -18,3 +18,5 @@
         =link_to "ログイン","#",class: "right__log-in"
         
         =link_to "新規会員登録","#",class: "right__sign-up"
+
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'

@@ -4,14 +4,14 @@
       .single-container__header-icon
         = link_to "#" do
           .single-container__header-icon-image
-            = image_tag 'logo.png', size: '300x60'
+            %img{src: "/logo.png",height:"60px",width:"300px"}
 
   .single-main
     .login-single-container
       .login-single-head
         アカウントをお持ちでない方はこちら
         .btn-newsession
-          = link_to "#" do
+          = link_to "sign_up" do
             新規会員登録
       = form_for(resource, as: resource_name, url: "#", html: {id: "new_user_form",class: 'login-single-inner'}) do |f|
         .login-single-content
@@ -36,4 +36,4 @@
           = link_to "#" do 
             特定商取引に関する表記
       = link_to "#" do
-        = image_tag 'logo.png', size: '300x60', class: "footer-logo"
+        %img{src: "/logo.png",height:"60px",width:"300px",class:"footer-logo"}

@@ -40,3 +40,5 @@ class Item < ApplicationRecord
     # User機能が実装できたらコメントアウトを外す
     # validates :seller_id,
       # presence: true
+
+end

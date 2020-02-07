@@ -81,3 +81,4 @@ gem "omniauth-rails_csrf_protection"
 gem 'payjp'
 gem 'ancestry'
 gem 'devise'
+gem 'erb2haml'

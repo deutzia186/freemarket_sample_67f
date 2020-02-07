@@ -9,7 +9,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string          :region,              null: false
       t.integer         :delivery_day,        null: false
       t.integer         :seller_id
-      t.integer         :buyer_id          
+      t.integer         :buyer_id
       t.timestamps
     end
   end

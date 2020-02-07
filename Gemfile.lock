@@ -111,12 +111,12 @@ GEM
     diff-lcs (1.3)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    erb2haml (0.1.5)
-      html2haml
     dropzonejs-rails (0.8.4)
       rails (> 3.1)
     enum_help (0.0.17)
       activesupport (>= 3.0.0)
+    erb2haml (0.1.5)
+      html2haml
     erubi (1.9.0)
     erubis (2.7.0)
     excon (0.71.1)
@@ -322,9 +322,6 @@ GEM
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
-    turbolinks (5.2.1)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
     tzinfo (1.2.6)
       thread_safe (~> 0.1)
     uglifier (4.2.0)
@@ -366,9 +363,9 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-  erb2haml
   dropzonejs-rails
   enum_help
+  erb2haml
   fog-aws
   font-awesome-sass
   haml-rails
@@ -387,7 +384,6 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
-  turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
   unicorn (= 5.4.1)

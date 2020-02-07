@@ -71,26 +71,20 @@
         .l-single-content
           .form-group
             %p.textcenter
-              「次へ進む」のボタンを押すことにより、
-              = link_to "#" do
-                利用規約
-              に同意したものとみなします
             = f.submit "次へ進む", class: "btn"
           .form-group
 
-    .single-footer
-      .navigation
-        %ul.clearfix
-          %li 
-            = link_to "#" do 
-              プライバシーポリシー
-          %li 
-            = link_to "#" do 
-              フリマ利用規約
-          %li 
-            = link_to "#" do 
-              特定商取引に関する表記
-        = link_to "#" do
-          %img{src: "/logo.png",height:"60px",width:"300px",class:"footer-logo"}
-
-          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
+  .single-footer
+    .navigation
+      %ul.clearfix
+        %li 
+          = link_to "#" do 
+            プライバシーポリシー
+        %li 
+          = link_to "#" do 
+            フリマ利用規約
+        %li 
+          = link_to "#" do 
+            特定商取引に関する表記
+      = link_to "#" do
+        %img{src: "/logo.png",height:"60px",width:"300px",class:"footer-logo"}

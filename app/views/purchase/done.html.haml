@@ -1,3 +1,54 @@
-%h2 購入が完了しました！
-%p Apple MacBook Pro 13インチ
-%p ¥135,000(送料込み)
+.single-container
+  .single-header
+  
+  .single-main
+    .after-purchase-container
+      .message
+        .message__title
+          = icon('fas', 'clock', class: 'clock-icon')
+          発送をお待ちください
+        .message__text
+          出品者からの発送通知をお待ちください
+      %h2.after-purchase-head
+        購入が完了しました
+      .after-content-item-image
+        .after-purchase-group
+          .after-item
+            .after-item-image
+              = image_tag @images.first.image.url,size:'200x200'
+            .after-item-name
+              = @item.name
+      .after-content-item-price
+        .after-purchase-group
+          .after-item-pricefee
+            .after-item-pricefee__price
+              = "¥ #{@item.price}"
+            .after-item-pricefee__fee
+              = @fee.name
+      .content-shipping
+        .after-purchase-group
+          .shipping
+            .shipping__title
+              配送先
+            .shipping__text
+              = "〒 #{current_user.address.zipcode}"
+              %br
+              = @city.name
+              = current_user.address.town
+              = current_user.address.house_number
+              = current_user.address.building
+              %br
+              = current_user.first_name
+              = current_user.last_name
+
+      .content-after-buybtn
+        .after-purchase-group
+          .btn-after
+            .btn
+              = link_to root_path do
+                トップページへ戻る
+  
+
+      
+  .single-footer
+    .navigation

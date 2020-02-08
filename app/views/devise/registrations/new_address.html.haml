@@ -21,7 +21,7 @@
           .form-group
             = f.label :都道府県
             %span.form-require 必須
-            = f.text_field :city, autofocus: true, placeholder: "例) 東京都",required: "required", class: 'input-default'
+            = collection_select :address, :city,Prefecture.all,:id,:name,{include_blank: '---'} ,{class: "input-default"}
 
           .form-group
             = f.label :市区町村

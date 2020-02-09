@@ -6,7 +6,10 @@
     %script{src: "https://js.pay.jp/", type: "text/javascript"}
     = csrf_meta_tags
     = csp_meta_tag
+    -# = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' ← このオプションを消す
+    -# = javascript_include_tag 'application', 'data-turbolinks-track': 'reload' ← このオプションを消す
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
+
   %body
     = yield

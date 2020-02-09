@@ -11,7 +11,7 @@
     お支払い情報(クレジットカード)
     .icon
       >
-  =link_to "",class:"logout" do
+  =link_to destroy_user_session_path, method: :delete, class:"logout" do
     ログアウト
     .icon
       >

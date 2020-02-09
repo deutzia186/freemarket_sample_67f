@@ -38,4 +38,5 @@ class Item < ApplicationRecord
 
     validates :seller_id,
       presence: true
+  
 end

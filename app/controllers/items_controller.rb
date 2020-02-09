@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def index
+    @items = Item.where(buyer_id: nil).order("created_at DESC").limit(3)
   end
 
   def new
@@ -21,6 +22,10 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :status, :body, :price, :fee, :region, :delivery_day, :seller_id, :buyer_id, images_attributes: [:image] )
+  end
+
+  def set_item
+    @item = Item.find(params[:id]) 
   end
 
   # user機能が実装できたらitem_params内と入れ替える

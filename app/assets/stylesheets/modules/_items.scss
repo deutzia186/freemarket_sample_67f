@@ -264,7 +264,14 @@
         }
         &__image{
         background-color: #fff;
-
+          .figure {
+            width: 220px;
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            z-index: auto;
+          }
         }
         .price{
           display: flex;

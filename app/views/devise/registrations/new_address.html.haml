@@ -21,7 +21,7 @@
           .form-group
             = f.label :都道府県
             %span.form-require 必須
-            = f.text_field :city, autofocus: true, placeholder: "例) 東京都",required: "required", class: 'input-default'
+            = collection_select :address, :city,Prefecture.all,:id,:name,{include_blank: '---'} ,{class: "input-default"}
 
           .form-group
             = f.label :市区町村
@@ -48,7 +48,7 @@
           .form-group
             %p.textcenter
               「登録」のボタンを押すことにより、
-              = link_to "#" do
+              = link_to "root_path" do
                 利用規約
               に同意したものとみなします
             = f.submit "登録", class:"btn"

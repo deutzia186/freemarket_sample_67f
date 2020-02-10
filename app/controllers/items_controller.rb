@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user! ,only: [:new]
+
   def index
     @items = Item.where(buyer_id: nil).order("created_at DESC").limit(3)
   end

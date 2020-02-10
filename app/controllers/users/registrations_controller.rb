@@ -32,7 +32,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_address(@address.attributes)
     @user.save
     sign_in(:user, @user)
-    root_path
+
+    redirect_to root_path
+
   end
 
   def destroy

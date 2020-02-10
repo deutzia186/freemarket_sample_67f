@@ -1,14 +1,14 @@
 $(function(){
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
-    var html = `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`;
+    var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
   // 子カテゴリーの表示作成
   function appendChidrenBox(insertHTML){
     var childSelectHtml = '';
     childSelectHtml = `<div class='select-wrap1 ' id= 'child_category' >
-                        <select class='select-default1' id="child_category" name="category_id">
+                        <select class='select-default1' id="child_category" name="item[category_id]">
                           <option value="---" data-category="---">---</option>
                           ${insertHTML}
                           <select>
@@ -19,7 +19,7 @@ $(function(){
   function appendGrandchidrenBox(insertHTML){
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<div class='select-wrap1 ' id= 'grandchild_category' >
-                            <select class='select-default1' id="grandchild_category" name="category_id">
+                            <select class='select-default1' id="grandchild_category" name="item[category_id]">
                               <option value="---" data-category="---">---</option>
                           ${insertHTML}
                               <select>

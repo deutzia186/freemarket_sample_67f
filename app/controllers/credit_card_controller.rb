@@ -1,7 +1,8 @@
 class CreditCardController < ApplicationController
 
+  before_action :set_card ,only: [:new, :show, :delete] 
+
   def new
-    card = CreditCard.find_by(user_id: current_user.id)
     redirect_to credit_card_index_path if card.exists?
   end
 
@@ -26,7 +27,6 @@ class CreditCardController < ApplicationController
   end
 
   def delete 
-    card = CreditCard.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to new_credit_card_path
     else
@@ -39,7 +39,6 @@ class CreditCardController < ApplicationController
   end
 
   def show 
-    card = CreditCard.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to new_credit_card_path
     else
@@ -47,5 +46,9 @@ class CreditCardController < ApplicationController
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
+  end
+
+  def set_card
+    card = CreditCard.find_by(user_id: current_user.id)
   end
 end

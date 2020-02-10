@@ -27,6 +27,7 @@ class ItemsController < ApplicationController
   #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
       @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
+  
 
   def create
     @item = Item.new(item_params)
@@ -43,7 +44,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :status, :body, :price, :fee, :region, :delivery_day, :seller_id, :buyer_id, images_attributes: [:image]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :status, :body, :price, :fee, :region, :delivery_day, :seller_id, :category_id, images_attributes: [:image]).merge(seller_id: current_user.id)
   end
 
   def set_item

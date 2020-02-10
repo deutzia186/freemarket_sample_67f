@@ -1,0 +1,45 @@
+.single-main {
+  display: block;
+  .l-single-container {
+  width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  .showcredit-head {
+    padding: 32px 16px;
+    font-size: 22px;
+    line-height: 1.5;
+    text-align: center;
+    font-weight: bold;
+  }
+    .showcredit-content {
+      border-top: 1px solid #f5f5f5;
+      max-width: 380px;
+      margin: 0 auto;
+
+      .form-group{
+        padding-top: 50px;
+        .showlabel{
+          font-weight:bold;
+          font-size: 20px;
+          width: 100%;
+        }
+      }
+    }
+    .delete-credit-btn {
+      margin: 10px 0 0;
+      background: black;
+      border: 1px solid black;
+      color: #fff;
+      display: block;
+      width: 100%;
+      line-height: 48px;
+      font-size: 18px;
+      transition: all ease-out .3s;
+      cursor: pointer;
+      text-align: center;
+      a{
+        color:white;
+      }
+    }
+  }
+}

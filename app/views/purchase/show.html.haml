@@ -1,0 +1,78 @@
+.single-container
+  .single-header
+  
+  .single-main
+    .purchase-container
+      %h2.purchase-head
+        購入内容の確認
+      .content-item
+        .purchase-group
+          .item
+            .item-image
+              = image_tag @images.first.image.url,size:'150x120'
+            .item-detail
+              %p.item-text
+                = @item.name
+              %p.item-pricefee
+              %span.item-price
+                = "¥ #{@item.price}"
+              %span.item-fee
+                = @fee.name
+      .content-payment
+        .purchase-group
+          .payment
+            .payment__title
+              支払い金額
+            .payment__price
+              = "¥ #{@item.price}"
+      .content-creditcard
+        .purchase-group
+          .creditcard
+            .creditcard__title
+              支払い方法
+            .creditcard__text
+              - if @default_card_information.blank?
+                %br /
+              - else
+                カード番号
+                %br
+                = "**** **** **** " + @default_card_information.last4
+                %br
+                有効期限
+                %br
+                - exp_month = @default_card_information.exp_month.to_s
+                - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                = exp_month + " / " + exp_year
+      .content-shipping
+        .purchase-group
+          .shipping
+            .shipping__title
+              配送先
+            .shipping__text
+              = "〒 #{current_user.address.zipcode}"
+              %br
+              = @city.name
+              = current_user.address.town
+              = current_user.address.house_number
+              = current_user.address.building
+              %br
+              = current_user.first_name
+              = current_user.last_name
+
+      .content-buybtn
+        .purchase-group
+          .btn-buy
+            .btn
+            = form_tag(action: :pay, method: :post) do
+              %button{class: "buy-btn"} 購入する
+  
+            .install-message
+              アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
+            .install
+              = link_to "#" do
+                = image_tag "/1280px-Download_on_the_App_Store_Badge.svg_638923b1-49f1-4be6-a584-1c5c2767a43e.webp",size:'180×53'
+              = link_to "#" do
+                = image_tag "/1280px-Download_on_the_App_Store_Badge.svg_638923b1-49f1-4be6-a584-1c5c2767a43e.webp",size:'180×53'
+      
+  .single-footer
+    .navigation

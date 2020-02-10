@@ -1,5 +1,4 @@
 class CreditCardController < ApplicationController
-  require "payjp"
 
   def new
     card = CreditCard.where(user_id: current_user.id)

@@ -1,7 +1,7 @@
 class CreditCardController < ApplicationController
 
   def new
-    card = CreditCard.where(user_id: current_user.id)
+    card = CreditCard.find_by(user_id: current_user.id)
     redirect_to credit_card_index_path if card.exists?
   end
 
@@ -39,7 +39,7 @@ class CreditCardController < ApplicationController
   end
 
   def show 
-    card = CreditCard.where(user_id: current_user.id).first
+    card = CreditCard.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to new_credit_card_path
     else

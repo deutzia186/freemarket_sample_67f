@@ -10,7 +10,7 @@ class PurchaseController < ApplicationController
     card = CreditCard.where(user_id: current_user.id).first
     @images = @item.images
     if card.blank?
-      redirect_to controller: "credit_card", action: "new"
+      redirect_to new_credit_card_path
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
@@ -29,7 +29,7 @@ class PurchaseController < ApplicationController
     if card.save
     @item.buyer_id = current_user.id
     @item.save
-    redirect_to action: 'done' 
+    redirect_to done_purchase_path
     end
   end
 

@@ -1,0 +1,40 @@
+.wrapper
+  = render "shared/header"
+  .contents
+    .contents__main
+      .contents__main__left
+      .contents__main__right
+        %section.items-box-container
+          -if @search.present?
+            %h2.search-result-head
+              =@search
+              %span.search-result-head-text
+                の検索結果
+              .search-result-number
+                ="1-#{@items.count}件表示"
+            .search-result-content
+              - @items.each do |item|
+                .product
+                  =link_to "#" do
+                    .product__image
+                      = image_tag item.images.first.image.url, class: "figure"
+                    .product__content
+                      .product__content__name
+                        = item.name
+                      %ul.price
+                        %li 
+                          ￥
+                          = item.price
+                          (税込)
+                        %li
+                          %i.fa.fa-star.likeIcon 7
+                        %li.tax_in 
+          -else
+            %h2.search-result-nil
+              新着商品
+            .items-box-content
+              該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+
+  = render "shared/banner"
+  = render "shared/footer"
+  = render "shared/exhibition" 

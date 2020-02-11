@@ -10,24 +10,25 @@
               =@search
               %span.search-result-head-text
                 の検索結果
-            .search-result-number
-              ="1-#{@items.count}件表示"
-            - @items.each do |item|
-              .product
-                =link_to "#" do
-                  .product__image
-                    = image_tag item.images.first.image.url, class: "figure"
-                  .product__content
-                    .product__content__name
-                      = item.name
-                    %ul.price
-                      %li 
-                        ￥
-                        = item.price
-                        (税込)
-                      %li
-                        %i.fa.fa-star.likeIcon 7
-                      %li.tax_in 
+              .search-result-number
+                ="1-#{@items.count}件表示"
+            .search-result-content
+              - @items.each do |item|
+                .product
+                  =link_to "#" do
+                    .product__image
+                      = image_tag item.images.first.image.url, class: "figure"
+                    .product__content
+                      .product__content__name
+                        = item.name
+                      %ul.price
+                        %li 
+                          ￥
+                          = item.price
+                          (税込)
+                        %li
+                          %i.fa.fa-star.likeIcon 7
+                        %li.tax_in 
           -else
             %h2.search-result-nil
               新着商品

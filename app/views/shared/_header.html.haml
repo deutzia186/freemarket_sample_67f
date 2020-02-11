@@ -7,7 +7,7 @@
       .search
         = form_tag(searches_path,method: :get) do
           = text_field_tag :search, "",placeholder:"何かお探しですか？",class:"search__form"
-          = submit_tag '検索', :name => nil, class:"search__button"
+          = submit_tag '',src:"icon-search 1.png", :name => nil, class:"search__button"
     .header__box--down
       .left
         =link_to "カテゴリー","#",class: "left__category",id: "catbtn"

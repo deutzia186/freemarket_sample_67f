@@ -1,6 +1,7 @@
 class CreditCardController < ApplicationController
 
   require "payjp"
+  
   def new
     card = CreditCard.where(user_id: current_user.id)
     redirect_to credit_card_index_path if card.exists?

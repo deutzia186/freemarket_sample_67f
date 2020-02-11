@@ -5,10 +5,9 @@
         = link_to "#" do
           %img{src:"logo.png",height:"41px",width:"140px"}
       .search
-        %input#searchInput.search__form{name: "key", placeholder: "キーワードから探す"}/
-        .search__button
-          =link_to "#" do
-            %img{src:"icon-search 1.png",height:"20px",width:"20px"}
+        = form_tag(searches_path,method: :get) do
+          = text_field_tag :search, "",placeholder:"何かお探しですか？",class:"search__form"
+          = submit_tag '検索', :name => nil, class:"search__button"
     .header__box--down
       .left
         =link_to "カテゴリー","#",class: "left__category",id: "catbtn"
@@ -22,3 +21,5 @@
           =link_to "ログイン",new_user_session_path,class: "right__log-in"
           
           =link_to "新規会員登録",new_user_registration_path,class: "right__sign-up"
+
+          

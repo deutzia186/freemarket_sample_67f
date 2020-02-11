@@ -13,7 +13,7 @@
             .input-default
               = "**** **** **** " + @default_card_information.last4
             .cardlist
-              = image_tag "cardlist.png",size: '330×40'
+              %img{src: "/cardlist.png",height:"40px",width:"330px"}
           .form-group
             .showlabel
               %label 有効期限

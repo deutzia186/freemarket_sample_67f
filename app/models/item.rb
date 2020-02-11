@@ -4,6 +4,11 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :seller, class_name: "User"
 
+  def self.search(search)
+    return Item.all unless search
+    Item.where(['name LIKE ?', "%#{search}%"])
+  end
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :item_status
@@ -28,6 +33,7 @@ class Item < ApplicationRecord
       length: { maximum: 9999999 }
     
     validates :fee,
+
       presence: true
 
     validates :region,

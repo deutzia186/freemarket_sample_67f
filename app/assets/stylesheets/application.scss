@@ -10,8 +10,6 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require dropzone/basic
- *= require dropzone/dropzone
  */
 
 
@@ -23,10 +21,14 @@
 @import "modules/user-login";
 @import "modules/user-registrations";
 @import "modules/shipping";
-@import "modules/creditcard";
+@import "modules/new-creditcard";
+@import "modules/show-creditcard";
 @import "modules/exhibition";
 @import "modules/show";
 @import "modules/buyconfirmation";
+@import "modules/purchase-confirmation";
+@import "modules/after-purchase";
+@import "modules/searches";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 // @import "modules/category";

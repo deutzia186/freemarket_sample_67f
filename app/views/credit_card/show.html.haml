@@ -1,0 +1,36 @@
+
+.single-container
+  .single-header
+  
+  .single-main
+    .l-single-container
+      %h2.showcredit-head
+        登録クレジットカード情報
+        .showcredit-content
+          .form-group
+            .showlabel
+              %label カード番号
+            .input-default
+              = "**** **** **** " + @default_card_information.last4
+            .cardlist
+              %img{src: "/cardlist.png",height:"40px",width:"330px"}
+          .form-group
+            .showlabel
+              %label 有効期限
+            %br
+            .expiration-select
+              .expiration-month-year
+                - exp_month = @default_card_information.exp_month.to_s
+                - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                = exp_month + " / " + exp_year
+        .credit-content
+          .form-group
+            = form_tag(delete_credit_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
+              %input{ type: "hidden", name: "card_id", value: "" }
+              %button{ class: "delete-credit-btn"} 削除する
+          .form-group
+
+    .single-footer
+      .navigation
+
+

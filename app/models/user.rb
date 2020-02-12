@@ -10,4 +10,5 @@ class User < ApplicationRecord
   validates :password,    length: { minimum: 7 } 
   has_one :address
   has_many :items
+
 end

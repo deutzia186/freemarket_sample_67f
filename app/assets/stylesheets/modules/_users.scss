@@ -69,6 +69,7 @@
         }
       }
       &__buy {
+        width: 700px;
         background-color: white;
         margin-top: 50px;
         .tab-head {
@@ -83,11 +84,13 @@
           width: 100%;
           margin: 26px auto;
           justify-content: flex-start;
+          overflow: scroll;
           .product{
             width: 220px;
-            display: inline-block;
-            float: left;
+            display: flex;
+
             a{
+              margin: 0px 10px;
               text-decoration: none;
             }
             &__image{

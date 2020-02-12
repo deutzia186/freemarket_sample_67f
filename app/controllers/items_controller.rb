@@ -1,6 +1,10 @@
 class ItemsController < ApplicationController
+  before_action :set_items, only: [:edit,:update,:show,:destroy]
+  before_action :set_status, only: [:show]
+  before_action :set_fee, only: [:show]
+  before_action :set_prefecture, only: [:show]
+  before_action :set_delivery, only: [:show]
   before_action :authenticate_user! ,only: [:new]
-  before_action :set_item, except: [:index, :new, :create]
 
 
   def index
@@ -35,7 +39,6 @@ class ItemsController < ApplicationController
   
   def create
     @item = Item.new(item_params)
-
     if @item.save
       redirect_to root_path
     else
@@ -48,9 +51,21 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to root_path
+      redirect_to item_path(@item.id)
     else
       render :edit
+    end
+  end
+
+  def show
+    @images = Image.where(item_id: @item.id).order("id ASC")
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path
+    else
+      render :show
     end
   end
  
@@ -61,9 +76,23 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :status, :body, :price, :fee, :region, :delivery_day, :seller_id, :category_id, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
   end
 
-  def set_item
+  def  set_items
     @item = Item.find(params[:id])
   end
- 
 
+  def  set_status
+    @status = ItemStatus.find(@item.status)
+  end
+
+  def  set_fee
+    @fee = ShippingFee.find(@item.fee)
+  end
+
+  def  set_prefecture
+    @region = Prefecture.find(@item.region)
+  end
+
+  def  set_delivery
+    @delivery = Delivery.find(@item.delivery_day)
+  end
 end

@@ -93,6 +93,7 @@ GEM
     chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
+    coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -111,7 +112,7 @@ GEM
     diff-lcs (1.3)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    dropzonejs-rails (0.8.4)
+    dropzonejs-rails (0.7.4)
       rails (> 3.1)
     enum_help (0.0.17)
       activesupport (>= 3.0.0)
@@ -143,6 +144,11 @@ GEM
     formatador (0.2.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gon (6.3.2)
+      actionpack (>= 3.0.20)
+      i18n (>= 0.7)
+      multi_json
+      request_store (>= 1.0)
     haml (5.1.2)
       temple (>= 0.8.0)
       tilt
@@ -216,6 +222,11 @@ GEM
       rest-client (~> 2.0)
     polyamorous (2.3.2)
       activerecord (>= 5.2.1)
+    pry (0.12.2)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
     public_suffix (4.0.3)
     puma (3.12.2)
     rack (2.1.2)
@@ -256,6 +267,8 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (1.6.0)
+    request_store (1.5.0)
+      rack (>= 1.4)
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -363,11 +376,12 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-  dropzonejs-rails
+  dropzonejs-rails (~> 0.7.3)
   enum_help
   erb2haml
   fog-aws
   font-awesome-sass
+  gon
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails
@@ -376,6 +390,7 @@ DEPENDENCIES
   omniauth
   omniauth-rails_csrf_protection
   payjp
+  pry-rails
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.1)
   ransack

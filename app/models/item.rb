@@ -36,6 +36,6 @@ class Item < ApplicationRecord
     validates :delivery_day,
       presence: true
 
-    # validates :seller_id,
-    #   presence: true
+    validates :seller_id,
+      presence: true
 end

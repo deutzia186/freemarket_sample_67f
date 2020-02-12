@@ -70,6 +70,22 @@
             background: #F5F5F5;
             border: 1px dashed #ccc;
             &-file {
+              .form-mask {
+                display: inline-grid;
+                img{
+                  height: 100px;
+                  width: 100px;
+                  margin: 0px 3px;
+                  .delete_img {
+
+                  }
+                }
+                .hiddon-new {
+                }
+                input {
+                  display: none;
+                }
+              }
             }
             .visible-pc {
               text-align: center;

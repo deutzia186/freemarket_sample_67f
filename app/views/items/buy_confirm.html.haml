@@ -4,7 +4,7 @@
       .single-container__header-icon
         = link_to "#" do
           .single-container__header-icon-image
-            = image_tag 'logo.png', size: '300x60'
+            %img{src:"logo.png", size: '300x60'}
   
   .single-main
     .buyconfirmation-container
@@ -46,12 +46,12 @@
       .content-buybtn
         .buyform-group
           .btn-buy
-            .btn
+            = link_to root_path, class:"btn" do
               購入する
-            .install-message
-              アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
-            .appimage
-              AppStoreとGooglePlayのアイコン
+              .install-message
+                アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
+              .appimage
+                AppStoreとGooglePlayのアイコン
       
   .single-footer
     .navigation
@@ -66,4 +66,4 @@
           = link_to "#" do 
             特定商取引に関する表記
       = link_to "#" do
-        = image_tag 'logo.png', size: '300x60', class: "footer-logo"
+        %img{src: 'logo.png', size: '300x60', class: "footer-logo"}

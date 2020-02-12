@@ -39,6 +39,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    
     @item = Item.find_by(id: params[:id])
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
@@ -48,8 +49,8 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(item_params)
-      redirect_to item_path(@item.id)
+    if @items.update(item_params)
+      redirect_to item_path(@items.id)
     else
       render :edit
     end

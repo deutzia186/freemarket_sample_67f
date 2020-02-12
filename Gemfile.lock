@@ -117,7 +117,6 @@ GEM
       dotenv (= 2.7.5)
       rails (> 3.1)
       railties (>= 3.2, < 6.1)
-    dropzonejs-rails (0.7.4)
     enum_help (0.0.17)
       activesupport (>= 3.0.0)
     erb2haml (0.1.5)
@@ -393,7 +392,6 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
-  dropzonejs-rails (~> 0.7.3)
   enum_help
   erb2haml
   fog-aws

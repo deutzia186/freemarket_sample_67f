@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   }
   root "items#index"
   resources :categories, only: :index, defaults: { format: 'json' }
-  resources :items, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :items
     resources :users, only: [:index, :edit, :show, :update] do
       collection do
         get 'get_category_children', defaults: { format: 'json' }

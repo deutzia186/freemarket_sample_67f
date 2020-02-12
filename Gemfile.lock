@@ -115,9 +115,9 @@ GEM
     dotenv (2.7.5)
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
-      railties (>= 3.2, < 6.1)
-    dropzonejs-rails (0.8.4)
       rails (> 3.1)
+      railties (>= 3.2, < 6.1)
+    dropzonejs-rails (0.7.4)
     enum_help (0.0.17)
       activesupport (>= 3.0.0)
     erb2haml (0.1.5)
@@ -148,6 +148,11 @@ GEM
     formatador (0.2.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gon (6.3.2)
+      actionpack (>= 3.0.20)
+      i18n (>= 0.7)
+      multi_json
+      request_store (>= 1.0)
     haml (5.1.2)
       temple (>= 0.8.0)
       tilt
@@ -278,6 +283,8 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (1.6.0)
+    request_store (1.5.0)
+      rack (>= 1.4)
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -386,11 +393,12 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
-  dropzonejs-rails
+  dropzonejs-rails (~> 0.7.3)
   enum_help
   erb2haml
   fog-aws
   font-awesome-sass
+  gon
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails

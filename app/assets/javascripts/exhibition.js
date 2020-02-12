@@ -10,7 +10,7 @@ $(function(){
     $('.js').append(html);
 
   }
-
+  
   const buildImg = (index, url)=> {
     const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
     return html;
@@ -43,15 +43,15 @@ $(function(){
 
   $('#image-box').on('click', '.js-remove', function() {
     const targetIndex = $(this).parent().data('index');
-
+    
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
-
+    
     if (hiddenCheck) hiddenCheck.prop('checked', true);
 
     $(this).parent().remove();
     $(`img[data-index="${targetIndex}"]`).remove();
 
-
+  
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
-}); 
+});

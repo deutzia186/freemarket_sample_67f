@@ -62,17 +62,69 @@
         .sell-dropbox-container {
           display: flex;
           margin: 16px auto 0;
+          height: 100%;
           .sell-upload-drop-box {
-            height: 162px;
             width: 620px;
             background: #F5F5F5;
             border: 1px dashed #ccc;
             &-file {
+              .form-mask {
+                display: inline-grid;
+                img{
+                  height: 100px;
+                  width: 100px;
+                  margin: 0px 3px;
+                  .delete_img {
+
+                  }
+                }
+                .hiddon-new {
+                }
+                input {
+                  display: none;
+                }
+              }
             }
-            .visible-pc {
-              text-align: center;
-              margin-top: 60px;
+            .js {
+              display: flex;
+              flex-wrap: wrap;
+            }
+            #previews {
+              img {
+                padding-left: 18px;
+                padding-top: 20px;
+              }
+            }
+            .js-file_group {
+              padding-left: 16px;
+              padding-top: 10px;
+              font-size: 13px;
+              width: 46%;
+              
+            }
+            .js-remove {
+              display: inline-block;
+              max-width: 180px;
+              text-align: left;
+              border: 1px solid black;
+              font-size: 12px;
+              color: black;
+              text-decoration: none;
               font-weight: bold;
+              padding: 1px 8px;
+              border-radius: 4px;
+              transition: .4s;
+              &:hover {
+                background-color: black;
+                border-color: black;
+                color: #FFF;
+              }
+            }
+           
+              .visible-pc {
+                text-align: center;
+                margin-top: 60px;
+                font-weight: bold;
             }
           }
         }

@@ -2,7 +2,7 @@
   .header__box
     .header__box--up
       .logo
-        = link_to "#" do
+        = link_to root_path do
           %img{src:"logo.png",height:"41px",width:"140px"}
       .search
         = form_tag(searches_path,method: :get) do

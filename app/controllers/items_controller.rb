@@ -38,7 +38,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @image = Item.create(item_params)
     if @item.save
       redirect_to root_path
     else
@@ -51,8 +50,11 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item.update(item_params)
-    redirect_to item_path(@item.id)
+    if @item.update(item_params)
+      redirect_to item_path(@item.id)
+    else
+      render :edit
+    end
   end
 
   def show
@@ -60,8 +62,11 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to root_path
+    if @item.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
   end
  
 

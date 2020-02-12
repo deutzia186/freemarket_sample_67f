@@ -9,7 +9,7 @@
           .contents__main__right__image__member
             %img{src:"member_photo_noimage_thumb.png", size: "100*100", class: "member-icon" }
             .member-name
-              = @user.nickname
+              = current_user.nickname
         .contents__main__right__buy
           .tab-head
             出品した商品

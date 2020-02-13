@@ -48,7 +48,7 @@
                 %p.form-group-label4-title 商品の状態
                 %p.form-require 必須
               .select-wrap2
-                %i.icon-arrow-bottom
+                %i.icon-arrow-bottom 
                 = collection_select :item, :status,ItemStatus.all,:id,:name,{include_blank: '---'} ,{class: "select-default2"}
         .sell-content-group3
           .sell-sub-title

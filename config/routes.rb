@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -32,7 +33,11 @@ Rails.application.routes.draw do
 
   end
 
-  resources :searches,only:[:index]
+  resources :searches,only:[:index] do
+    collection do
+      get 'detail', to: 'detail_searches_path'
+    end
+  end
 
   
 end

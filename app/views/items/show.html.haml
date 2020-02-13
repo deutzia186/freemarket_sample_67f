@@ -6,11 +6,11 @@
       .upperBox
         .itemBuy
           %p.itemBuy__title
-            = @items.name 
+            = @item.name 
             .itemBuy__imageBody
               %ul.showImageBox
                 %li.showImages
-                  = image_tag(@items.images.first.image.url, class: "showBigImage")
+                  = image_tag(@item.images.first.image.url, class: "showBigImage")
                   %ul.showSmallImageBox
                     %li.showSmallImages
                       - @images.each do |image|
@@ -22,14 +22,14 @@
                     %th.showTh
                       出品者
                     %td.showTd
-                      =@items.seller.nickname
+                      =@item.seller.nickname
                   %tr.showTr
                     %th.showTh
                       カテゴリー
                     %td.showTd
-                      = link_to @items.category.root.name, "#", class: "showTransition"
-                      %br= link_to @items.category.parent.name, "#", class: "showTransition"
-                      = link_to @items.category.name, "#", class: "showTransition"
+                      = link_to @item.category.root.name, "#", class: "showTransition"
+                      %br= link_to @item.category.parent.name, "#", class: "showTransition"
+                      = link_to @item.category.name, "#", class: "showTransition"
                   %tr.showTr
                     %th.showTh
                       ブランド
@@ -62,17 +62,17 @@
             .itemBuy__priceBox
               .showPrice
                 ¥
-                =@items.price
+                =@item.price
               .itemBuy__tax
                 (税込)送料込み
-          -if @items.seller.id == current_user.id
-            = link_to "編集",edit_item_path(@items.id), class: "btn itemBuyBtn"
-            = link_to '削除',item_path(@items.id),method: :delete, class: "btn itemBuyBtn--gray",data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる"}
+          -if @item.seller.id == current_user.id
+            = link_to "編集",edit_item_path(@item.id), class: "btn itemBuyBtn"
+            = link_to '削除',item_path(@item.id),method: :delete, class: "btn itemBuyBtn--gray",data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる"}
           -else
             = link_to "購入画面に進む","#" , class: "btn itemBuyBtn"
             .showDescription
               .describeShow
-              =@items.body
+              =@item.body
             .detailBottomBtn
               .favoriteBox
                 .btn.favorite-btn

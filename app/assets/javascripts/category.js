@@ -38,7 +38,7 @@ $(function(){
       })
       .done(function(children){
         $('#child_category').remove(); //親が変更された時、子以下を削除する
-        $('#grandchildren_category').remove();
+        $('#grandchild_category').remove();
         var insertHTML = '';
         children.forEach(function(child){
           insertHTML += appendOption(child);

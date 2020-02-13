@@ -44,7 +44,11 @@
                 %p.form-require 必須
               .select-wrap1
                 %i.icon-arrow-bottom
-                = f.select :category, @category_parent_array, {}, {class: 'select-default1', id: 'parent_category'}
+                  = f.select :category_id, options_for_select(@category_parent_array.map{|c|[c, {}]},@item.category.parent.parent.name), {}, {class: 'select-default1', id: 'parent_category'}
+                .child_category
+                  = f.select :category_id, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.parent.id), {}, {class: 'select-default1', id: 'child_category'}
+                .grandchild_category
+                  = f.select :category_id, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.id), {}, {class: 'select-default1', id: 'grandchild_category'}
             .sell-form-box2
               .form-group-label4
                 %p.form-group-label4-title 商品の状態

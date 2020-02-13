@@ -39,24 +39,39 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    
+    @category_parent_array = Category.roots
+    @category_child_array = @item.category.parent.parent.children
+    @category_grandchild_array = @item.category.parent.children
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
+    def get_category_children
+      @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    end
+  
+    def get_category_grandchildren
+      @category_grandchildren = Category.find("#{params[:child_id]}").children
+    end
     @images = @item.images
   end
 
+
+
+
+
+
+
   def update
     if @item.update(item_params)
-      redirect_to item_path(@items.id)
+      redirect_to item_path(@item.id)
     else
       render :edit
     end
   end
 
   def show
-    @images = Image.where(item_id: @items.id).order("id ASC")
+    @images = Image.where(item_id: @item.id).order("id ASC")
   end
 
   def destroy

@@ -69,7 +69,7 @@
             = link_to "編集",edit_item_path(@item.id), class: "btn itemBuyBtn"
             = link_to '削除',item_path(@item.id),method: :delete, class: "btn itemBuyBtn--gray",data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる"}
           -else
-            = link_to "購入画面に進む",pay_purchase_path(@item.id), class: "btn itemBuyBtn"
+            = link_to "購入画面に進む",purchase_path(@item.id), class: "btn itemBuyBtn"
             .showDescription
               .describeShow
               =@item.body

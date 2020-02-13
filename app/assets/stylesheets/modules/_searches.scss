@@ -8,10 +8,72 @@
       height: 2000px;
       margin-left: 20px ;
       margin-top: 30px ;
-      background-color: cornsilk;
-
-
-
+        .detail_search_sort {
+          height: 100px;
+        }
+            #q_sorts {
+              width: 100%;
+              height: 30px;
+            }
+        
+      .detail_search_form {
+        background-color: #fff
+      }
+        .detail_search__title {
+          margin-bottom: 20px;
+        }
+        .detail_search-keyword {
+        } 
+        .detail_search-label-keyword {
+          
+        }
+        .keyword-form {
+          width: 100%;
+          height: 40px;
+          border: solid 1px;
+          height: 32px;
+          min-height: 0px;
+          }
+            .detail_search-price {
+              display: flex;
+              .price-minmax {
+                width: 45%;
+                height: 30px;
+                border: solid 1px;
+              }
+              .price-range {
+                width: 10px;
+                text-align: center;
+              }
+            }
+          .detail_search-checkbox {
+            font-size: 13px;
+            flex-flow: wrap;
+            display: flex;
+            height: 150px;  
+            input {
+            }
+            label{
+              width: 77px;
+              height: 50px;
+              margin-left: 10px;
+            }
+          }
+            .detail_search__btn--grey {
+              display: flex;
+              .clear-button {
+                width: 50%;
+              }
+              .detail-search-button {
+                width: 50%;
+                cursor: pointer;
+                border: 1px;
+                height: 50px;
+                background: red;
+              }
+            }
+      
+      
     }
     &__right{
       width: 900px;

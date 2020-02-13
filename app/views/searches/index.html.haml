@@ -53,7 +53,7 @@
             .search-result-content
               - @items.each do |item|
                 .product
-                  =link_to "#" do
+                  =link_to item_path(item.id) do
                     .product__image
                       = image_tag item.images.first.image.url, class: "figure"
                     .product__content

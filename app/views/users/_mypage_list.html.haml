@@ -1,5 +1,5 @@
-.contents__main__left
-  =link_to "",class:"title" do
+.contents__mypage__left
+  =link_to users_path,class:"title" do
     マイページ
     .icon
       >
@@ -8,7 +8,7 @@
     .icon
       >
   =link_to new_credit_card_path,class:"card" do
-    お支払い情報(クレジットカード)
+    クレジットカード情報
     .icon
       >
   =link_to destroy_user_session_path, method: :delete, class:"logout" do

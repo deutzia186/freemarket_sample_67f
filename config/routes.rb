@@ -5,9 +5,8 @@ Rails.application.routes.draw do
   }
   root "items#index"
   resources :categories, only: :index, defaults: { format: 'json' }
-  resources :users, only: [:index, :edit, :update]
-    resources :items, only: [:index, :show, :new, :edit, :destroy,:create] do
-  
+  resources :users, only: [:index, :edit, :show, :update] 
+    resources :items do
       collection do
         get 'get_category_children', defaults: { format: 'json' }
         get 'get_category_grandchildren', defaults: { format: 'json' }
@@ -30,7 +29,6 @@ Rails.application.routes.draw do
         get 'done', to: 'purchase#done'
       end
     end
-
   end
 
   resources :searches,only:[:index] do

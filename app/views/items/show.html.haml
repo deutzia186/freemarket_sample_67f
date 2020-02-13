@@ -1,23 +1,19 @@
+= render "shared/header"
 .detailPage
-  = render "shared/header"
-
   .showMain
     .DPcontent
       .upperBox
         .itemBuy
           %p.itemBuy__title
-            title
+            = @item.name 
             .itemBuy__imageBody
               %ul.showImageBox
                 %li.showImages
-                  = image_tag("bg-appBanner-pict.jpg", class: "showBigImage")
+                  %img{src: @item.images.first.image.url, class: "showBigImage"}
                   %ul.showSmallImageBox
                     %li.showSmallImages
-                      = image_tag("pict-reason-01.jpg", class: "showSmallImage")
-                    %li.showSmallImages
-                      = image_tag("pict-reason-02.jpg", class: "showSmallImage")
-                    %li.showSmallImages
-                      = image_tag("pict-reason-03.jpg", class: "showSmallImage")
+                      - @images.each do |image|
+                        %img{src:image.image.url, class: "showSmallImage"}
             .showTable-box
               %table.showTable
                 %tbody.showTbody
@@ -25,18 +21,19 @@
                     %th.showTh
                       出品者
                     %td.showTd
-                      test
+                      =@item.seller.nickname
                   %tr.showTr
                     %th.showTh
                       カテゴリー
                     %td.showTd
-                      = link_to "カテゴリー1", "#", class: "showTransition"
-                      %br= link_to "カテゴリー2", "#", class: "showTransition"
-                      = link_to "カテゴリー3", "#", class: "showTransition"
+                      = link_to @item.category.root.name, "#", class: "showTransition"
+                      %br= link_to @item.category.parent.name, "#", class: "showTransition"
+                      = link_to @item.category.name, "#", class: "showTransition"
                   %tr.showTr
                     %th.showTh
                       ブランド
                     %td.showTd
+                      =@status.name
                   %tr.showTr
                     %th.showTh
                       商品のサイズ
@@ -45,37 +42,36 @@
                     %th.showTh
                       商品の状態
                     %td.showTd
-                      新品/未使用
+                      =@status.name
                   %tr.showTr
                     %th.showTh
                       配送料の負担
                     %td.showTd
-                      着払い（購入者負担）
+                      =@fee.name
                   %tr.showTr
                     %th.showTh
                       発送元の地域
                     %td.showTd
-                      = link_to "地域", "#", class: "showTransition"
+                      = link_to @region.name, "#", class: "showTransition"
                   %tr.showTr
                     %th.showTh
                       発送日の目安
                     %td.showTd
-                      発送までの日数
+                      = @delivery.name
             .itemBuy__priceBox
               .showPrice
-                ¥price
+                ¥
+                =@item.price
               .itemBuy__tax
                 (税込)送料込み
-            = link_to "購入画面に進む", "#", class: "btn itemBuyBtn"
+          -if @item.seller.id == current_user.id
+            = link_to "編集",edit_item_path(@item.id), class: "btn itemBuyBtn"
+            = link_to '削除',item_path(@item.id),method: :delete, class: "btn itemBuyBtn--gray",data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる"}
+          -else
+            = link_to "購入画面に進む",purchase_path(@item.id), class: "btn itemBuyBtn"
             .showDescription
               .describeShow
-                商品説明
-                商品説明
-                商品説明
-                商品説明
-                商品説明
-                商品説明
-                商品説明
+              =@item.body
             .detailBottomBtn
               .favoriteBox
                 .btn.favorite-btn
@@ -107,4 +103,5 @@
         = link_to "カテゴリ1をもっと見る", "#", class: "searchCategory1"
   
   = render "shared/banner"
-  = render "shared/footer"  
+  = render "shared/footer"
+  = render "shared/exhibition" 

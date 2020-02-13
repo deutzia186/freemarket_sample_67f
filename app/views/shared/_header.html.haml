@@ -2,12 +2,12 @@
   .header__box
     .header__box--up
       .logo
-        = link_to "#" do
-          %img{src:"logo.png",height:"41px",width:"140px"}
+        = link_to root_path do
+          %img{src:"/logo.png",height:"41px",width:"140px"}
       .search
         = form_tag(searches_path,method: :get) do
           = text_field_tag :search, "",placeholder:"何かお探しですか？",class:"search__form"
-          = submit_tag '',src:"icon-search 1.png", :name => nil, class:"search__button"
+          = submit_tag '', :name => nil, class:"search__button"
     .header__box--down
       .left
         =link_to "カテゴリー","#",class: "left__category",id: "catbtn"

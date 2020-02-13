@@ -21,11 +21,19 @@
                 #previews
                   - if @item.persisted?
                     - @item.images.each_with_index do |image, i|
-                      = image_tag image.image.url, data: { index: i }, width: "100px", height: '100px'
+                      = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
                 = f.fields_for :images do |image|
                   .js-file_group{"data-index" => "#{image.index}"}
                     = image.file_field :image, class: 'js-file'
-                    %span.js-remove 削除     
+                    %span.js-remove 削除
+                  - if @item.persisted?
+                    = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                - if @item.persisted?
+                  .js-file_group{"data-index" => "#{@item.images.count}"}
+                    = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
+                    %span.js-remove 削除
+
+                    
         .sell-content-group1
           .form-group-label1
             %p.form-group-label1-title 商品名
@@ -44,13 +52,17 @@
                 %p.form-require 必須
               .select-wrap1
                 %i.icon-arrow-bottom
-                = f.select :category, @category_parent_array, {}, {class: 'select-default1', id: 'parent_category'}
+                  = f.select :category_id, options_for_select(@category_parent_array.map{|c|[c, {}]},@item.category.parent.parent.name), {}, {class: 'select-default1', id: 'parent_category'}
+                .child_category
+                  = f.select :category_id, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.parent.id), {}, {class: 'select-default1', id: 'child_category'}
+                .grandchild_category
+                  = f.select :category_id, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.id), {}, {class: 'select-default1', id: 'grandchild_category'}
             .sell-form-box2
               .form-group-label4
                 %p.form-group-label4-title 商品の状態
                 %p.form-require 必須
               .select-wrap2
-                %i.icon-arrow-bottom 
+                %i.icon-arrow-bottom
                 = collection_select :item, :status,ItemStatus.all,:id,:name,{include_blank: '---'} ,{class: "select-default2"}
         .sell-content-group3
           .sell-sub-title
@@ -88,7 +100,7 @@
                     %p.form-require 必須
                   .l-right
                     %p.yen-icon ¥
-                    = f.text_field :price, class: "input-default", placeholder: "例）300", value: ""
+                    = f.text_field :price, class: "input-default", placeholder: "例）300"
               %li.form-group6
                 .l-left
                   %p.sell-commission 販売手数料 (10%)
@@ -114,7 +126,7 @@
             = link_to "加盟店規約", "#", class: "sell-notes"
             に同意したことになります。
           %button.btn-red{type: "button"}
-            = f.submit "出品する", class: "exhibition-submit"
+            = f.submit "更新する", class: "exhibition-submit"
           = link_to "もどる", :back, class: "return-btn"
           
           

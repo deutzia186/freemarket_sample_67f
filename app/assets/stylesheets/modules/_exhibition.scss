@@ -84,11 +84,12 @@
                 }
               }
             }
-            .js {
+            #image-box {
               display: flex;
               flex-wrap: wrap;
             }
             #previews {
+              width: 100%;
               img {
                 padding-left: 18px;
                 padding-top: 20px;

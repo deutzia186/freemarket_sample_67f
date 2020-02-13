@@ -9,7 +9,7 @@
     .sell-container
       .sell-container-top
         %h2.sell-container-top__text 商品の情報を入力
-      = form_for (@items), html: {class: 'sell-form'} do |f|
+      = form_for (@item), html: {class: 'sell-form'} do |f|
         .sell-upload-box
           %h3.sell-upload-box-head
             %p.exhibition-image 出品画像
@@ -19,20 +19,13 @@
             .sell-upload-drop-box
               #image-box
                 #previews
-                  - if @items.persisted?
-                    - @items.images.each_with_index do |image, i|
+                  - if @item.persisted?
+                    - @item.images.each_with_index do |image, i|
                       = image_tag image.image.url, data: { index: i }, width: "100px", height: '100px'
                 = f.fields_for :images do |image|
-                  .js
-                    .js-file_group{"data-index" => "#{image.index}"}
-                      = image.file_field :image, class: 'js-file'
-                      %span.js-remove 削除     
-                    - if @items.persisted?
-                      = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-                    - if @items.persisted?
-                      .js-file_group{"data-index" => "#{@items.images.count}"}
-                        = file_field_tag :image, name: "item[images_attributes][#{@items.images.count}][image]", class: 'js-file'
-                        .js-remove 削除 
+                  .js-file_group{"data-index" => "#{image.index}"}
+                    = image.file_field :image, class: 'js-file'
+                    %span.js-remove 削除     
         .sell-content-group1
           .form-group-label1
             %p.form-group-label1-title 商品名
@@ -95,7 +88,7 @@
                     %p.form-require 必須
                   .l-right
                     %p.yen-icon ¥
-                    = f.text_field :price, class: "input-default", placeholder: "例）300", value: ""
+                    = f.text_field :price, class: "input-default", placeholder: "例）300"
               %li.form-group6
                 .l-left
                   %p.sell-commission 販売手数料 (10%)

@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_items, only: [:edit,:update,:show,:destroy]
+  before_action :set_item, only: [:edit,:update,:show,:destroy]
   before_action :set_status, only: [:show]
   before_action :set_fee, only: [:show]
   before_action :set_prefecture, only: [:show]
@@ -12,8 +12,8 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @items = Item.new
-    @items.images.new
+    @item = Item.new
+    @item.images.new
     
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
@@ -30,8 +30,8 @@ class ItemsController < ApplicationController
   end
   
   def create
-    @items = Item.new(item_params)
-    if @items.save
+    @item = Item.new(item_params)
+    if @item.save
       redirect_to root_path
     else
       render :new
@@ -40,16 +40,15 @@ class ItemsController < ApplicationController
 
   def edit
     
-    @items = Item.find_by(id: params[:id])
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
-    @images = @items.images
+    @images = @item.images
   end
 
   def update
-    if @items.update(item_params)
+    if @item.update(item_params)
       redirect_to item_path(@items.id)
     else
       render :edit
@@ -61,7 +60,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @items.destroy
+    if @item.destroy
       redirect_to root_path
     else
       render :show
@@ -75,23 +74,23 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :status, :body, :price, :fee, :region, :delivery_day, :seller_id, :category_id, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
   end
 
-  def  set_items
-    @items = Item.find(params[:id])
+  def  set_item
+    @item = Item.find(params[:id])
   end
 
   def  set_status
-    @status = ItemStatus.find(@items.status)
+    @status = ItemStatus.find(@item.status)
   end
 
   def  set_fee
-    @fee = ShippingFee.find(@items.fee)
+    @fee = ShippingFee.find(@item.fee)
   end
 
   def  set_prefecture
-    @region = Prefecture.find(@items.region)
+    @region = Prefecture.find(@item.region)
   end
 
   def  set_delivery
-    @delivery = Delivery.find(@items.delivery_day)
+    @delivery = Delivery.find(@item.delivery_day)
   end
 end

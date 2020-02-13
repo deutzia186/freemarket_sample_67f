@@ -7,7 +7,7 @@ $(function(){
                     id="item_images_attributes_${num}_image">
                     <div class="js-remove">削除</div>
                   </div>`;
-    $('.js').append(html);
+    return html;
 
   }
   

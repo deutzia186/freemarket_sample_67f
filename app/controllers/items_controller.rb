@@ -56,12 +56,6 @@ class ItemsController < ApplicationController
     @images = @item.images
   end
 
-
-
-
-
-
-
   def update
     if @item.update(item_params)
       redirect_to item_path(@item.id)
@@ -80,6 +74,8 @@ class ItemsController < ApplicationController
     else
       render :show
     end
+
+    @images = @item.images
   end
  
 

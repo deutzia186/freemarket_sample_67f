@@ -2,18 +2,18 @@
   = render "shared/header"
   = render "bread"
   .contents
-    .contents__main
+    .contents__mypage
       = render "mypage_list"
-      .contents__main__right
-        .contents__main__right__image
-          .contents__main__right__image__member
+      .contents__mypage__right
+        .contents__mypage__right__image
+          .contents__mypage__right__image__member
             %img{src:"member_photo_noimage_thumb.png", size: "100*100", class: "member-icon" }
             .member-name
               =current_user.nickname
-        .contents__main__right__buy
+        .contents__mypage__right__buy
           .tab-head
             出品した商品
-          .contents__main__right__buy__box
+          .contents__mypage__right__buy__box
             .product
               - @items.each do |item|
                 =link_to item_path(item.id) do

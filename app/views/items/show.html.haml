@@ -1,6 +1,5 @@
+= render "shared/header"
 .detailPage
-  = render "shared/header"
-
   .showMain
     .DPcontent
       .upperBox
@@ -10,11 +9,11 @@
             .itemBuy__imageBody
               %ul.showImageBox
                 %li.showImages
-                  = image_tag(@item.images.first.image.url, class: "showBigImage")
+                  %img{src: @item.images.first.image.url, class: "showBigImage"}
                   %ul.showSmallImageBox
                     %li.showSmallImages
                       - @images.each do |image|
-                        = image_tag(image.image.url, class: "showSmallImage")
+                        %img{src:image.image.url, class: "showSmallImage"}
             .showTable-box
               %table.showTable
                 %tbody.showTbody

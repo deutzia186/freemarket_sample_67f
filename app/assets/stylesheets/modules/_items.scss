@@ -346,6 +346,10 @@
         margin: 0 0 20px;
         font-size: 16px;
         font-weight: bold;
+        ul {
+          display: flex;
+          flex-direction: column;
+        }
       }
     }
   }

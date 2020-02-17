@@ -66,12 +66,6 @@ class ItemsController < ApplicationController
 
   def show
     @images = Image.where(item_id: @item.id).order("id ASC")
-    if user_signed_in?
-      render :show
-    else
-      redirect_to new_user_session_path
-    end
-    
   end
 
   def destroy

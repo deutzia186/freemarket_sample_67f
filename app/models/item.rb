@@ -21,6 +21,9 @@ class Item < ApplicationRecord
 
     validates :status,
       presence: true
+    
+    validates :images,
+      presence: true
 
     validates :body,
       presence: true,

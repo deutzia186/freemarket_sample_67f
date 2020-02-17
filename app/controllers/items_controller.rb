@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      render :new
+      redirect_to new_item_path
     end
   end
 
@@ -66,6 +66,11 @@ class ItemsController < ApplicationController
 
   def show
     @images = Image.where(item_id: @item.id).order("id ASC")
+    if user_signed_in?
+      render :show
+    else
+      redirect_to new_user_session
+    end
   end
 
   def destroy

@@ -7,7 +7,7 @@ class SearchesController < ApplicationController
   end
 
   def detail
-    @param_q = params[:q][:name_cont]
+    @search = params[:q][:name_cont]
     @search_item = Item.ransack(params[:q]) 
     @result_items = @search_item.result.page(params[:page])
   end

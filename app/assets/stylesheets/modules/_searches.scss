@@ -1,6 +1,9 @@
-.contents{
+.search-contents{
   &__main{
     margin:  10px 0px;
+    display: flex;
+    background-color: #f8f8f8;
+
     
   
     &__left{
@@ -19,59 +22,68 @@
       .detail_search_form {
         background-color: #fff
       }
-        .detail_search__title {
+        .detail_search_form-box {
+          margin: 10px;
+        }
+          .detail_search__title {
           margin-bottom: 20px;
-        }
-        .detail_search-keyword {
-        } 
-        .detail_search-label-keyword {
+          }
+          .detail_search-keyword {
+          }  
+          .detail_search-label-keyword {
           
-        }
-        .keyword-form {
-          width: 100%;
-          height: 40px;
-          border: solid 1px;
-          height: 32px;
-          min-height: 0px;
           }
-            .detail_search-price {
+          .keyword-form {
+            width: 95%;
+            height: 40px;
+            border: solid 1px;
+            height: 32px;
+            min-height: 0px;
+            }
+              .detail_search-price {
+                display: flex;
+                .price-minmax {
+                  width: 46%;
+                  height: 30px;
+                  border: solid 1px;
+                }
+                .price-range {
+                  width: 10px;
+                  text-align: center;
+                }
+              }
+            .detail_search-checkbox {
+              font-size: 16px;
+              flex-flow: wrap;
               display: flex;
-              .price-minmax {
-                width: 45%;
-                height: 30px;
-                border: solid 1px;
+              height: 150px;  
+              input {
               }
-              .price-range {
-                width: 10px;
-                text-align: center;
-              }
-            }
-          .detail_search-checkbox {
-            font-size: 13px;
-            flex-flow: wrap;
-            display: flex;
-            height: 150px;  
-            input {
-            }
-            label{
-              width: 77px;
-              height: 50px;
-              margin-left: 10px;
-            }
-          }
-            .detail_search__btn--grey {
-              display: flex;
-              .clear-button {
-                width: 50%;
-              }
-              .detail-search-button {
-                width: 50%;
-                cursor: pointer;
-                border: 1px;
+              label{
+                width: 110px;
                 height: 50px;
-                background: red;
+                margin-left: 10px;
               }
             }
+              .detail_search__btn--grey {
+                display: flex;
+                #clear-button {
+                  width: 50%;
+                  margin: 10px;
+                  text-align: center;
+                  text-decoration: none;
+                  color: gray;
+                  background-color: blue;
+                }
+                .detail-search-button {
+                  width: 50%;
+                  cursor: pointer;
+                  border: 1px;
+                  height: 50px;
+                  background: red;
+                  margin: 10px;
+                }
+              }
       
       
     }

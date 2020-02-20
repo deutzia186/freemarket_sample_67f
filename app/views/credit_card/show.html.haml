@@ -1,6 +1,6 @@
 
 .single-container
-  .single-header
+  = render "shared/user-header"
   
   .single-main
     .l-single-container
@@ -30,7 +30,6 @@
               %button{ class: "delete-credit-btn"} 削除する
           .form-group
 
-    .single-footer
-      .navigation
+  = render "shared/user-footer"
 
 

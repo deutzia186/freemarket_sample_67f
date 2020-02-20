@@ -1,10 +1,5 @@
 .single-container
-  .single-header
-    %h1
-      .single-container__header-icon
-        = link_to "#" do
-          .single-container__header-icon-image
-            %img{src:'/logo.png',height:"60px",width:"300px"}
+  = render "shared/user-header"
   .single-main
     .sell-container
       .sell-container-top
@@ -130,17 +125,4 @@
           = link_to "もどる", :back, class: "return-btn"
           
           
-  .single-footer
-    .navigation
-      %ul.clearfix
-        %li 
-          = link_to "#" do 
-            プライバシーポリシー
-        %li 
-          = link_to "#" do 
-            フリマ利用規約
-        %li 
-          = link_to "#" do 
-            特定商取引に関する表記
-      = link_to "#" do
-        %img{src:'/logo.png',height:"60px",width:"300px"}
+  = render "shared/user-footer"

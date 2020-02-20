@@ -1,5 +1,5 @@
 .single-container
-  .single-header
+  = render "shared/user-header"
   
   .single-main
     .purchase-container
@@ -74,5 +74,4 @@
               = link_to "#" do
                 %img{src: "/googleplay2.png",height:"53px",width:"180px"}
       
-  .single-footer
-    .navigation
+  = render "shared/user-footer"

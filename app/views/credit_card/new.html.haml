@@ -1,5 +1,5 @@
 .single-container
-  .single-header
+  = render "shared/user-header"
   
   .single-main
     .l-single-container
@@ -60,5 +60,4 @@
             = submit_tag "追加する", id: "token_submit", class: "credit-btn"
           .form-group
 
-    .single-footer
-      .navigation
+  = render "shared/user-footer"
